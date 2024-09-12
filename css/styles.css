@@ -1,0 +1,217 @@
+<style>
+        body {
+            margin: 0;
+            padding: 0px; /* Pastikan menggunakan satuan seperti px */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh; /* Mengatur tinggi sesuai viewport */
+            width: 100vw;  /* Mengatur lebar sesuai viewport */
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Sembunyikan scrollbar horizontal */
+            align-items: center;
+
+        }
+
+
+        .header {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+			font-weight: 600;
+            margin-right: auto;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .container {
+            align-content: center;
+            width: 100%;
+            max-width: 600px;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            overflow: hidden;
+            overflow-y: scroll; /* Tetap memungkinkan menggulir secara vertikal */
+            -ms-overflow-style: none;  /* Sembunyikan scrollbar di Internet Explorer */
+            scrollbar-width: none;  /* Sembunyikan scrollbar di Firefox */
+        }
+
+        
+        .container::-webkit-scrollbar {
+            display: none; /* Sembunyikan scrollbar di Chrome, Safari, dll. */
+        }
+        
+        .content {
+            flex: 1;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            height: 100vh;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s ease-in-out;
+            scale: 0;
+        }
+
+
+        .content.active {
+            scale: 1;
+            top: 0;
+            opacity: 1;
+            transform: translateY(0);
+
+        }
+
+        .logo {
+			margin: 10px;
+            padding: 15px;
+            display: flex;
+            align-self: left;
+			height: 10%;
+            width: auto;
+            position: relative;
+		}
+
+		.card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+    
+        .card img {
+            width: 10vw;
+            height: 50vh;
+            margin-right: 15px;
+        }
+        .card .text {
+            display: flex;
+            flex-direction: column;
+        }
+		.menu {
+			margin: 10px;
+			display: flex;
+			gap: 10px;
+			}
+			
+		.menu-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 12px;
+            width: 10vh;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .menu-item img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 5px;
+            object-fit: cover;
+        }
+        .menu-item .text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+		
+        .feed {
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding: 15px;
+            text-align: left;
+			font-size: 12px;
+            position: relative;
+
+        }
+
+        .iframe-container {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #4CAF50;
+            border-top: 1px solid #dddddd;
+            padding: 10px 0;
+            position:relative;
+            bottom: 0;
+            width: 90%;
+            border-radius: 100px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2%;
+            z-index: 9999;
+
+        }
+
+        .bottom-nav a {
+            flex: 1;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 100px;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+
+        }
+
+        .bottom-nav a:hover {
+            transform: translateY(-5px);
+
+        }
+
+        .bottom-nav a.active {
+            color: #ffd900;
+            transform: translateY(-5px);
+
+        }
+
+        .bottom-nav i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+    </style>
